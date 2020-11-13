@@ -1,14 +1,23 @@
+<div class="container show">
+
+
+<img src="https://picsum.photos/200/300" />
+
+<div class="container inline">
 <h1><%= @cocktail.name %></h1>
 
    <ul class="list-group">
   <% @cocktail.doses.each do |dose| %>
     <li class="list-group-item"><%= dose.description %> - <%= dose.ingredient.name %> 
-    <%= link_to "Delete #{dose.description}",
+    <p class="delete_button"><%= link_to "",
             dose_path(dose),
             method: :delete,
-            data: { confirm: "Are you sure?" } %>
+             class: "fas fa-times-circle",
+            data: { confirm: "Are you sure?" } %></p>
   <% end %>
 </ul>
-  <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail) %>
+  <%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: "btn btn-gradient" %>
+</div>
 
+</div>
 
